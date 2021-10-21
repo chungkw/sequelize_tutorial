@@ -52,6 +52,8 @@ module.exports.new = async (req, res, next) => {
 module.exports.edit = async (req, res, next) => {
     try {
         const { username, email, password } = req.body;
+        // if the above variables are undefined and get passed to sequelize
+        // those columns are ignored
 
         const [rowsAffected, users] = await Users.update(
             { username, email, password },

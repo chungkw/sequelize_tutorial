@@ -40,6 +40,8 @@ It will return an array of model instances to represent each user.
 
 To read data from a table, we can use the `findAll` method on the model.
 
+In [`users.js`](../server/src/controllers/users.js):
+
 ```js
 const users = await Users.findAll({
     attributes: { exclude: ['password'] }
@@ -98,6 +100,8 @@ const user = await User.findByPk(user_id, {
 
 To update data in a table, we can use the `update` method.
 
+In [`users.js`](../server/src/controllers/users.js):
+
 ```js
 const [rowsAffected, users] = await Users.update(
     { username, email, password },
@@ -109,7 +113,7 @@ The above will update any rows where the `user_id` matches, which can only be on
 
 The method returns an array, where the first item is the number of rows where data has been affected and the second item is an array of model instances that represents the affected rows.
 
-### Updating a model instance
+### Updating a Model Instance
 
 If you already have a model instace and you want to update the row it represents, you also call the `update` method on it.
 
@@ -123,6 +127,8 @@ const updatedUser = await existingUser.update({
 
 To delete data, we can use the `destroy` method.
 
+In [`users.js`](../server/src/controllers/users.js):
+
 ```js
 const rowsDestroyed = await Users.destroy({
     where: { user_id }
@@ -131,7 +137,7 @@ const rowsDestroyed = await Users.destroy({
 
 The method returns the number of rows that have been deleted.
 
-### Deleting a model instance
+### Deleting a Model Instance
 
 If you already have a model instance and you want to delete the row it represents, you also can call the `delete` method on it.
 
