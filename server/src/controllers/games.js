@@ -69,7 +69,7 @@ module.exports.edit = async (req, res, next) => {
             { where: { game_id: req.params.gid } }
         );
 
-        if (categories)
+        if (categories.length > 0)
             await games[0].setCategories(categories);
 
         res.status(200).json({ results: { changed: rowsAffected } });
