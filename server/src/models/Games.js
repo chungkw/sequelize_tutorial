@@ -18,7 +18,7 @@ const Games = db.define(
             allowNull: false
         },
         price: {
-            type: DataTypes.DECIMAL(3, 2), // ie 999.99
+            type: DataTypes.DECIMAL(5, 2), // ie 999.99
             allowNull: false
         },
         year: {
