@@ -2,10 +2,10 @@ const router = require('express').Router();
 
 const categories = require('../controllers/categories');
 
-router.get('/users', categories.getAll);
-router.get('/users/:cid', categories.getById);
-router.post('/users', categories.new);
-router.put('/users/:cid', categories.edit);
-router.delete('/users/:cid', categories.delete);
+router.get('/categories', categories.getAll);
+router.get('/categories/:cid', categories.getById);
+router.post('/categories', categories.new);
+router.put('/categories/:cid', categories.edit);
+router.delete('/categories/:cid', categories.delete);
 
 module.exports = router;
