@@ -51,13 +51,23 @@ const seeder = async () => {
 
     await Promise.all(setCategories);
 
-    const reviewInsertions = users.map((user) => ({
-        created_by: user.user_id,
-        fk_game_id: games.at(Math.random() * games.length).game_id,
-        title: faker.lorem.sentence(),
-        content: faker.lorem.paragraph(),
-        rating: Math.floor(Math.random() * 10)
-    }));
+    // each user has 2 reviews
+    const reviewInsertions = [
+        ...users.map((user) => ({
+            created_by: user.user_id,
+            fk_game_id: games.at(Math.random() * games.length).game_id,
+            title: faker.lorem.sentence(),
+            content: faker.lorem.paragraph(),
+            rating: Math.floor(Math.random() * 10)
+        })),
+        ...users.map((user) => ({
+            created_by: user.user_id,
+            fk_game_id: games.at(Math.random() * games.length).game_id,
+            title: faker.lorem.sentence(),
+            content: faker.lorem.paragraph(),
+            rating: Math.floor(Math.random() * 10)
+        }))
+    ];
 
     await Reviews.bulkCreate(reviewInsertions);
 };
