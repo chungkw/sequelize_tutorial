@@ -16,7 +16,7 @@ const newlyCreatedUser = await Users.create({
 
 It will return a new instance of the model to represent that row data.
 
-### Create many
+### Create Many
 
 If you have a lot of data to insert at once, you can use the `bulkCreate` method. It works by taking an array of objects which represents data in a row.
 

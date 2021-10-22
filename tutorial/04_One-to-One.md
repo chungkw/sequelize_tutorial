@@ -2,7 +2,7 @@
 
 Or as Sequelize calls it, associations.
 
-Say that now our users each have one and only one story, so we want a relationship between a user and their story.
+Say that now our users each can have one story, so we want a relationship between a user and their story.
 
 A new model definition is necessary, in [`Stories.js`](../server/src/models/Stories.js):
 

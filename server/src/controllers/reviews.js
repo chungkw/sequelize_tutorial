@@ -1,9 +1,16 @@
-const { Reviews } = require('../models/Models');
+const { Users, Reviews } = require('../models/Models');
 
 module.exports.getAll = async (req, res, next) => {
     try {
         const results = await Reviews.findAll({
-            include: ['author', 'game']
+            include: [
+                {
+                    model: Users,
+                    as: 'author',
+                    attributes: { exclude: ['password'] }
+                },
+                'game'
+            ]
         });
 
         res.status(200).json({ results });
@@ -18,7 +25,14 @@ module.exports.getById = async (req, res, next) => {
     try {
         const results = await Reviews.findOne({
             where: { review_id: req.params.rid },
-            include: ['author', 'game']
+            include: [
+                {
+                    model: Users,
+                    as: 'author',
+                    attributes: { exclude: ['password'] }
+                },
+                'game'
+            ]
         });
 
         res.status(200).json({ results });
@@ -31,10 +45,10 @@ module.exports.getById = async (req, res, next) => {
 
 module.exports.new = async (req, res, next) => {
     try {
-        const { title, content, rating } = req.body;
+        const { title, content, rating, created_by, fk_game_id } = req.body;
 
         const newReview = await Reviews.create({
-            title, content, rating
+            title, content, rating, created_by, fk_game_id
         });
 
         res.status(201).json({ results: { review_id: newReview.review_id } });

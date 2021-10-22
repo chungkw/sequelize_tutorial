@@ -15,7 +15,7 @@
     "start": "cls && node ."
   },
   "keywords": [],
-  "author": "",
+  "author": "Chung Kin Wai",
   "license": "MIT",
   "description": ""
 }
