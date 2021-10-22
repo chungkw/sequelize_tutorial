@@ -1,4 +1,4 @@
-# Sequelize Models
+# Models
 
 In Sequelize, a model is defined to represent a table in the database. An instance of a model thus represents a row in a database table.
 

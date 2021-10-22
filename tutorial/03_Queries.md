@@ -1,4 +1,4 @@
-# Querying the Database
+# Queries
 
 Now that we have a working model, we can begin querying the database. Typical CRUD operations - create, read, update and destroy.
 

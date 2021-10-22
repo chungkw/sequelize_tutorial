@@ -1,3 +1,6 @@
+# Vuepress
+.vuepress/.*
+
 # Logs
 logs
 *.log

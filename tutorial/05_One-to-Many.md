@@ -157,7 +157,7 @@ await Users.create({
 
 #### Multiple Includes
 
-Now when you want to get a review, you would need to join data from two other models, the Users and Games models. To do so, you use an array.
+Now when you want to get a review, you would need to join data from two other models, the `Users` and `Games` models. To do so, you use an array.
 
 In [`reviews.js`](../server/src/controllers/reviews.js):
 
