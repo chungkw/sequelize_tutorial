@@ -217,3 +217,20 @@ const Titanfall2 = await Games.create({
 
 await Titanfall2.setCategories([3, 4]);
 ```
+
+### Read
+
+When reading many-to-many data, Sequelize will also get the data from the join table. If you don't want this, you can exclude columns from the join table.
+
+In [`games.js`](../server/src/controllers/games.js):
+
+```js
+await Games.findAll({
+    include: {
+        model: Categories,
+        as: 'categories',
+        // Sequelize uses the term "through" for join tables
+        through: { attributes: [] } // don't want any columns in the join table
+    }
+});
+```

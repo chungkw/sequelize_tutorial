@@ -1,9 +1,13 @@
-const { Games } = require('../models/Models');
+const { Games, Categories } = require('../models/Models');
 
 module.exports.getAll = async (req, res, next) => {
     try {
         const results = await Games.findAll({
-            include: 'categories'
+            include: {
+                model: Categories,
+                as: 'categories',
+                through: { attributes: [] }
+            }
         });
 
         res.status(200).json({ results });
@@ -18,7 +22,14 @@ module.exports.getById = async (req, res, next) => {
     try {
         const results = await Games.findOne({
             where: { game_id: req.params.gid },
-            include: ['categories', 'reviews']
+            include: [
+                {
+                    model: Categories,
+                    as: 'categories',
+                    through: { attributes: [] }
+                },
+                'reviews'
+            ]
         });
 
         res.status(200).json({ results });
