@@ -126,11 +126,11 @@ Reviews.belongsTo(Games, {
 
 ## Querying this Relationship
 
-### Create
-
 It is also similar to one-to-one relationships.
 
-But if you want to create a user and their (many) reviews all at once:
+### Create
+
+If you want to create a user and their (many) reviews all at once:
 
 ```js
 await Users.create({
@@ -157,7 +157,7 @@ await Users.create({
 
 #### Multiple Includes
 
-Now when you want to get a review, you would need to join data from two other models, the `Users` and `Games` models. To do so, you use an array.
+When you want to get a review, you would need to join data from two other models, the `Users` and `Games` models. To do so, you use an array.
 
 In [`reviews.js`](../server/src/controllers/reviews.js):
 
