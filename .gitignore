@@ -1,3 +1,7 @@
+#Vuepress
+.vuepress/.cache
+.vuepress/.temp
+
 # Logs
 logs
 *.log

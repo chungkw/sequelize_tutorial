@@ -1,0 +1,15 @@
+{
+  "name": "sequelize_tutorial_vuepress",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "cls && npx vuepress dev",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Chung Kin Wai",
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^2.0.0-beta.26"
+  }
+}
