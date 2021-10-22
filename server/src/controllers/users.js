@@ -1,4 +1,4 @@
-const { Users } = require('../models/Models');
+const { Users, Reviews, Games, Categories } = require('../models/Models');
 
 module.exports.getAll = async (req, res, next) => {
     try {
@@ -19,7 +19,22 @@ module.exports.getById = async (req, res, next) => {
         const results = await Users.findOne({
             where: { user_id: req.params.uid },
             attributes: { exclude: ['password'] },
-            include: 'reviews'
+            include: [
+                {
+                    model: Reviews,
+                    as: 'reviews',
+                    include: {
+                        model: Games,
+                        as: 'game',
+                        include: {
+                            model: Categories,
+                            as: 'categories',
+                            through: { attributes: [] }
+                        }
+                    }
+                },
+                'story'
+            ]
         });
 
         // same as
