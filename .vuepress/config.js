@@ -10,6 +10,10 @@ module.exports = {
     title: 'Sequelize Tutorial',
     port: 9090,
     themeConfig: {
+        navbar: [{
+            text: 'Github',
+            link: 'https://github.com/chungkw/sequelize_tutorial'
+        }],
         sidebar,
         contributors: false
     },
@@ -17,6 +21,5 @@ module.exports = {
     pagePatterns: [
         './README.md',
         './tutorial/*.md'
-    ],
-    public: './server'
+    ]
 }
