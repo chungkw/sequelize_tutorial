@@ -4,7 +4,7 @@ Now that there are a few relationships going on, we can do a query like this, in
 
 ```js
 await Users.findOne({
-    where: { user_id: req.params.uid },
+    where: { user_id },
     attributes: { exclude: ['password'] },
     include: [
         {
