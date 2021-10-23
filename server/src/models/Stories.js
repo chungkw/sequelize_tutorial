@@ -46,7 +46,7 @@ Users.hasOne(Stories, {
 
 Stories.belongsTo(Users, {
     // the story has an author (who is the user)
-    foreignKey: 'created_by',// the key that references Users in Stories
+    foreignKey: 'created_by', // the key that references Users in Stories
     as: 'author' // relationship alias
 });
 

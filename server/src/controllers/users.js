@@ -153,7 +153,7 @@ module.exports.stupidDelete = async (req, res, next) => {
 
         // this rejection will always cause an error
         const rejection = new Promise((resolve, reject) => {
-            setTimeout(() => reject('A useless rejection'), 1000);
+            setTimeout(() => reject(new Error('A useless rejection')), 1000);
         });
 
         const destroyed = await Promise.all([destroyUser, destroyStory, destroyReviews, rejection]);
