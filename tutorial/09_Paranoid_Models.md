@@ -96,6 +96,8 @@ You can also do the same on a model instance:
 await user.destroy({ force });
 ```
 
+The `force` property defaults to false.
+
 ### "Soft" Delete
 
 We can make an API call to "soft" (not really) delete a user:
@@ -135,7 +137,10 @@ await Users.restore({
 // get a "soft" deleted user
 const user = Users.findOne({
     where: { user_id },
-    paranoid: false // used to ignore the paranoid feature (delete_at)
+    
+    // used to ignore the paranoid feature (delete_at)
+    // defaults to true (to hide soft deleted users)
+    paranoid: false
 });
 
 // restore on the instance
