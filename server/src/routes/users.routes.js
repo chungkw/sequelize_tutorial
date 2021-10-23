@@ -8,4 +8,7 @@ router.post('/users', users.new);
 router.put('/users/:uid', users.edit);
 router.delete('/users/:uid', users.delete);
 
+router.put('/restore/users/:uid', users.restore);
+router.delete('/stupid/users/:uid', users.stupidDelete);
+
 module.exports = router;
