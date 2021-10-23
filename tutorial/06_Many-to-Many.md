@@ -227,8 +227,7 @@ In [`games.js`](../server/src/controllers/games.js):
 ```js
 await Games.findAll({
     include: {
-        model: Categories,
-        as: 'categories',
+        association: 'categories',
         // Sequelize uses the term "through" for join tables
         through: { attributes: [] } // don't want any columns in the join table
     }

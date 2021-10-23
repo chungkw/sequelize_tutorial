@@ -1,4 +1,4 @@
-const { Games, Categories } = require('../models/Models');
+const { Categories } = require('../models/Models');
 
 module.exports.getAll = async (req, res, next) => {
     try {
@@ -17,8 +17,9 @@ module.exports.getById = async (req, res, next) => {
         const results = await Categories.findOne({
             where: { category_id: req.params.cid },
             include: {
-                model: Games,
-                as: 'games',
+                // model: Games,
+                // as: 'games',
+                association: 'games',
                 through: { attributes: [] }
             }
         });

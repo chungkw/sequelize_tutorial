@@ -1,4 +1,4 @@
-const { Users, Reviews, Games, Categories } = require('../models/Models');
+const { Users } = require('../models/Models');
 
 module.exports.getAll = async (req, res, next) => {
     try {
@@ -21,14 +21,14 @@ module.exports.getById = async (req, res, next) => {
             attributes: { exclude: ['password'] },
             include: [
                 {
-                    model: Reviews,
-                    as: 'reviews',
+                    // instead of the longer model/as properties,
+                    // we can use the shorthand association 
+                    // (its value what would have been the as property)
+                    association: 'reviews',
                     include: {
-                        model: Games,
-                        as: 'game',
+                        association: 'game',
                         include: {
-                            model: Categories,
-                            as: 'categories',
+                            association: 'categories',
                             through: { attributes: [] }
                         }
                     }

@@ -165,8 +165,7 @@ In [`reviews.js`](../server/src/controllers/reviews.js):
 await Reviews.findAll({
     include: [
         {
-            model: Users,
-            as: 'author',
+            association : 'author',
             attributes: { exclude: ['password'] }
         },
         'game'
