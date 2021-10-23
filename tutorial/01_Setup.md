@@ -26,7 +26,6 @@ Create a `.env` file in the root project folder.
 
 ```
 PORT=8080
-
 DB_HOST=
 DB_NAME=sequelize_tutorial
 DB_PORT=
@@ -67,16 +66,6 @@ const db = new Sequelize(name, user, password, {
     host, port, dialect: 'mysql'
 });
 
-(async function () {
-    try {
-        await db.authenticate();
-        // success
-    }
-    catch (error) {
-        // fail
-    }
-})();
-
 module.exports = db;
 ```
 
@@ -87,13 +76,19 @@ In the project entry file, we can get Sequelize to sync our database tables with
 In [`index.js`](../server/index.js):
 
 ```js
-(async function () {
+// immediately invoked function here to use async/await
+(async function main() {
     try {
-        await db.sync();
-        // success
+        // connect to database
+        await db.authenticate();
+
+        // sync the database to our models
+        await db.sync(/* options */);
     }
     catch (error) {
         // fail
     }
+
+    // ...
 })();
 ```
