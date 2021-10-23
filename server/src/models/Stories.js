@@ -32,7 +32,9 @@ const Stories = db.define(
         tableName: 'stories',
         timestamps: true,
         createdAt: 'created_at',
-        updatedAt: 'updated_at'
+        updatedAt: 'updated_at',
+        paranoid: true,
+        deletedAt: 'deleted_at'
     }
 );
 

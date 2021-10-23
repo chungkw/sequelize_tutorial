@@ -122,8 +122,10 @@ In [`stories.js`](../server/src/controllers/stories.js):
 ```js
 await Stories.findAll({
     include: {
-        model: Users,
-        as: 'author',
+        // model: Users,
+        // as: 'author',
+        // or the shortcut for the 2 lines above
+        association: 'author',
         attributes: { exclude: ['password'] }
     }
 });

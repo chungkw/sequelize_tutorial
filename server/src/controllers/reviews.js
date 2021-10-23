@@ -1,12 +1,13 @@
-const { Users, Reviews } = require('../models/Models');
+const { Reviews } = require('../models/Models');
 
 module.exports.getAll = async (req, res, next) => {
     try {
         const results = await Reviews.findAll({
             include: [
                 {
-                    model: Users,
-                    as: 'author',
+                    // model: Users,
+                    // as: 'author',
+                    association: 'author',
                     attributes: { exclude: ['password'] }
                 },
                 'game'
@@ -27,8 +28,9 @@ module.exports.getById = async (req, res, next) => {
             where: { review_id: req.params.rid },
             include: [
                 {
-                    model: Users,
-                    as: 'author',
+                    // model: Users,
+                    // as: 'author',
+                    association: 'author',
                     attributes: { exclude: ['password'] }
                 },
                 'game'

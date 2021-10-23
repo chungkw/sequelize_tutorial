@@ -1,4 +1,4 @@
-const { Users, Stories } = require('../models/Models');
+const { Stories } = require('../models/Models');
 
 module.exports.getAll = async (req, res, next) => {
     try {
@@ -9,8 +9,9 @@ module.exports.getAll = async (req, res, next) => {
             // we can also make a join query like this
             // this allows for more complex queries
             include: {
-                model: Users,
-                as: 'author',
+                // model: Users,
+                // as: 'author',
+                association: 'author',
                 // in the join query, dont want the user password
                 attributes: { exclude: ['password'] }
             }
@@ -29,8 +30,9 @@ module.exports.getById = async (req, res, next) => {
         const results = await Stories.findOne({
             where: { story_id: req.params.sid },
             include: {
-                model: Users,
-                as: 'author',
+                // model: Users,
+                // as: 'author',
+                association: 'author',
                 attributes: { exclude: ['password'] }
             }
         });
