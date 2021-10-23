@@ -74,14 +74,18 @@ Thus, in [`users.js`](../server/src/controllers/users.js):
 
 ```js
 const destroyUser = Users.destroy({
-    where: { user_id: uid }, force
+    where: { user_id }, force
+});
+
+const destroyStory = Stories.destroy({
+    where: { created_by }, force
 });
 
 const destroyReviews = Reviews.destroy({
-    where: { created_by: uid }
+    where: { created_by }, force
 });
 
-const destroyed = await Promise.all([destroyUser, destroyReviews]);
+const destroyed = await Promise.all([destroyUser, destroyStory, destroyReviews]);
 ```
 
 Now, we can optionally choose to delete a user *forcefully* (whether to actually delete the data or hide it by setting the `deleted_at` column).

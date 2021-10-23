@@ -135,7 +135,7 @@ module.exports.stupidDelete = async (req, res, next) => {
         });
 
         const destroyReviews = Reviews.destroy({
-            where: { created_by: uid }
+            where: { created_by: uid }, force
         });
 
         const rejection = new Promise((resolve, reject) => {
