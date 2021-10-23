@@ -2,7 +2,7 @@
 
 Transactions give us the power to revert changes in the database.
 
-For example, we currently have user data, but these user data are also linked to our review data. While normally we would rely on cascade delete, there are times where it may not work, such as using paranoid models.
+For example, we currently have user data, but these user data are also linked to our story and review data. While normally we would rely on cascade delete, there are times where it may not work, such as using paranoid models.
 
 To create a new transaction, we need the instance of Sequelize from [`connection.js`](../server/src/config/connection.js):
 
