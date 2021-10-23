@@ -88,7 +88,13 @@ const destroyReviews = Reviews.destroy({
 const destroyed = await Promise.all([destroyUser, destroyStory, destroyReviews]);
 ```
 
-Now, we can optionally choose to delete a user *forcefully* (whether to actually delete the data or hide it by setting the `deleted_at` column).
+Now, we can optionally choose to delete a user *forcefully* (whether to actually delete the data or hide it by setting the `deleted_at` column) using the `force` property which accepts true/false.
+
+You can also do the same on a model instance:
+
+```js
+await user.destroy({ force });
+```
 
 ### "Soft" Delete
 
@@ -117,6 +123,26 @@ We can also make an API call to "hard" (really) delete a user:
 It will even delete those that were already "soft" deleted.
 
 ## Restoring
+
+We can bring back "soft" deleted data using the `restore` method on either the model or a model instance:
+
+```js
+// restore on the model
+await Users.restore({
+    where: { user_id }
+});
+
+// get a "soft" deleted user
+const user = Users.findOne({
+    where: { user_id },
+    paranoid: false // used to ignore the paranoid feature (delete_at)
+});
+
+// restore on the instance
+await user.restore();
+```
+
+We can call the API to do so:
 
 ```
 [PUT] localhost:8080/api/restore/users/1
