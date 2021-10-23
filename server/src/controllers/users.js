@@ -113,6 +113,9 @@ module.exports.delete = async (req, res, next) => {
 
         const destroyed = await Promise.all([destroyUser, destroyStory, destroyReviews]);
 
+        // now that all changes are safe, we commit to them
+        await transaction.commit();
+
         // this value is not going to be accurate
         const rowsDestroyed = destroyed.reduce((acc, cur) => acc += cur, 0);
 
