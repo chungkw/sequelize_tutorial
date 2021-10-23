@@ -56,12 +56,12 @@ Users.hasOne(Stories, {
 
 Stories.belongsTo(Users, {
     // the story has an author (who is the user)
-    foreignKey: 'created_by',// the key that references Users in Stories
+    foreignKey: 'created_by', // the key that references Users in Stories
     as: 'author' // relationship alias
 });
 ```
 
-When a relationship has an alias, it must be queries with the alias.
+When a relationship has an alias, it must be queried with the alias.
 
 **The model that references the another is where the foreign key is stored.** In this case, it is in the `Stories` model, because that is where the `created_at` foreign key column is.
 
@@ -91,9 +91,9 @@ But you can also create them separately, then associate them. It is now however 
 
 ```js
 await Stories.create({
-    created_by: 1 // user id
+    created_by: 1, // user id
     title: "cheeki breeki cheburek",
-    content: "how to make cheburek at your cousin's place",
+    content: "how to make cheburek at your cousin's place"
 });
 ```
 
