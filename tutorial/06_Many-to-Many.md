@@ -122,7 +122,7 @@ id | name | description
 
 *Metro Exodus - Adventure, Post-Apocalyptic, Action (ids 1, 2, 3)*
 
-*Titanfall 2 - Action, Shooter (ids 1, 2)*
+*Titanfall 2 - Action, Shooter (ids 3, 4)*
 
 ### Create
 
@@ -180,7 +180,7 @@ const Action = await Categories.create({
 You can use the add/remove/get/set methods on the model instance to relate/associate data.
 
 These methods have names that are derived from the [alias](#optional-singular-and-plural) of the relationship. 
-Full list of methods at the [Sequelize Manual](https://sequelize.org/master/manual/assocs.html#special-methods-mixins-added-to-instances). Some methods below are also applicable on other relationships.
+Full list of methods at the [Sequelize Manual](https://sequelize.org/master/manual/assocs.html#special-methods-mixins-added-to-instances). Some methods are also applicable on other relationships.
 
 Some examples:
 
@@ -245,7 +245,7 @@ await Games.findAll({
     include: {
         association: 'categories',
         // Sequelize uses the term "through" for join tables
-        through: { attributes: [] } // don't want any columns in the join table
+        through: { attributes: [] } // don't want any columns from the join table
     }
 });
 ```
