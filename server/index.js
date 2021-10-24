@@ -27,15 +27,9 @@ const reset = true;
         // sync the database to our models
         await db.sync({ force: reset });
         console.log(pc.green('SYNCED DB SUCCESSFULLY'));
-    }
-    catch (error) {
-        console.log(pc.red('CONNECTION FAILED'), error);
-        process.exit(1);
-    }
 
-    // seed the database with data
-    if (reset) {
-        try {
+        // seed the database with data
+        if (reset) {
             console.log(pc.yellow('LOADING SEEDER'));
             const seeder = require('./src/database/seeder');
 
@@ -44,12 +38,13 @@ const reset = true;
 
             console.log(pc.green('FINISHED SEEDING'));
         }
-        catch (error) {
-            console.log(pc.red('ERROR SEEDING'), error);
-        }
-    }
 
-    app.listen(CONFIG.port, () => {
-        console.log(pc.blue(`SERVER IS READY ON PORT ${CONFIG.port}`));
-    });
+        app.listen(CONFIG.port, () => {
+            console.log(pc.blue(`SERVER IS READY ON PORT ${CONFIG.port}`));
+        });
+    }
+    catch (error) {
+        console.log(pc.red('SERVER FAILED TO START'), error);
+        process.exit(1);
+    }
 })();

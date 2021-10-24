@@ -61,9 +61,12 @@ module.exports.new = async (req, res, next) => {
 
 module.exports.edit = async (req, res, next) => {
     try {
+        // if you destructured undefined, likely created_by
         const { created_by, title, content } = req.body;
 
         const [rowsAffected, stories] = await Stories.update(
+            // and used undefined in here,
+            // sequelize will ignore the value
             { created_by, title, content },
             { where: { story_id: req.params.sid } }
         );
