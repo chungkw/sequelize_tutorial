@@ -120,6 +120,10 @@ id | name | description
 3 | Action | Be up for the challenge
 4 | Shooter | Use firearms to defeat your enemies
 
+*Metro Exodus - Adventure, Post-Apocalyptic, Action (ids 1, 2, 3)*
+
+*Titanfall 2 - Action, Shooter (ids 3, 4)*
+
 ### Create
 
 Do it all at once:
@@ -147,7 +151,7 @@ const MetroExodus = await Games.create({
 }, { include: "categories" });
 ```
 
-Do it separately:
+Do it separately, but they will not be related/associated with each other:
 
 ```js
 const MetroExodus = await Games.create({
@@ -171,32 +175,44 @@ const Action = await Categories.create({
     name: "Action",
     description: "Be up for the challenge"
 });
+```
 
-// these methods below have names that are derived from the alias of the relationship
-// Sequelize can determine singular/plural words
+You can use the add/remove/get/set methods on the model instance to relate/associate data.
+
+These methods have names that are derived from the [alias](#optional-singular-and-plural) of the relationship. 
+Full list of methods at the [Sequelize Manual](https://sequelize.org/master/manual/assocs.html#special-methods-mixins-added-to-instances). Some methods are also applicable on other relationships.
+
+Some examples:
+
+```js
+// if you do not have an instance of the category,
+// you can also use its id in its place
 
 // add one category to the game
 await MetroExodus.addCategory(Adventure);
 
 // adds multiple categories to the game
-await MetroExodus.addCategories([Adventure, PostApocalyptic, Action]);
-
-// if you do not have an instance of category, you can also use its id in its place
-
-// sets one or more categories to the game
-// this will delete categories that were assigned from before
-await MetroExodus.setCategories([1, 2, 3]);
+await MetroExodus.addCategories([2, 3]);
 
 // removes one category from the game
 await MetroExodus.removeCategory(Adventure);
 
 // removes multiple categories from the game
-await MetroExodus.removeCategories([Adventure, PostApocalyptic]);
+await MetroExodus.removeCategories([2, 3]);
+
+// get all categories of the game
+// returns an array of category instances
+const categories = await MetroExodus.getCategories();
+
+// sets an array of categories to the game
+// this will delete categories that were previously assigned
+await MetroExodus.setCategories([1, 2, 3]);
+
+// removes all categories from a game
+await MetroExodus.setCategories([]);
 ```
 
-Full list of methods at [Sequelize Manual](https://sequelize.org/master/manual/assocs.html#special-methods-mixins-added-to-instances). Some methods above are also applicable on other relationships.
-
-Or if you don't want to use any of these add/set methods, you can just create join rows on the join table yourself, i.e.:
+Or if you don't want to use any of the above methods, you can just create join rows on the join table yourself, i.e.:
 
 ```js
 await Games_Categories.create({
@@ -229,7 +245,7 @@ await Games.findAll({
     include: {
         association: 'categories',
         // Sequelize uses the term "through" for join tables
-        through: { attributes: [] } // don't want any columns in the join table
+        through: { attributes: [] } // don't want any columns from the join table
     }
 });
 ```

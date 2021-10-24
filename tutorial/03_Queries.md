@@ -115,7 +115,7 @@ The method returns an array, where the first item is the number of rows where da
 
 ### Updating a Model Instance
 
-If you already have a model instace and you want to update the row it represents, you also call the `update` method on it.
+If you already have a model instance and you want to update the row it represents, you also call the `update` method on it.
 
 ```js
 const updatedUser = await existingUser.update({
