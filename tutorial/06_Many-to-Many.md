@@ -92,6 +92,11 @@ Categories.belongsToMany(Games, {
 });
 ```
 
+The pattern here is kind of confusing:
+
+- `foreignKey` refers to the column that will have the id of what is on the left, ie `Games` in `Games.belongsToMany(...)`.
+- `as` refers to the relationship of the right-side model to the left-side model.
+
 ### Optional Singular and Plural
 
 If you want to set your own singular/plural forms of the relationship alias, you can do the following:
