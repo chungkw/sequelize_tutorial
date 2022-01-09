@@ -111,7 +111,7 @@ const [rowsAffected, users] = await Users.update(
 
 The above will update any rows where the `user_id` matches, which can only be one.
 
-The method returns an array, where the first item is the number of rows where data has been affected and the second item is an array of model instances that represents the affected rows (PostgreSQl only feature). Since we are using MySQL, `users` is undefined.
+The method returns an array, where the first item is the number of rows where data has been affected and the second item is an array of model instances that represents the affected rows (PostgreSQL only feature). Since we are using MySQL, `users` is undefined.
 
 ### Updating a Model Instance
 
