@@ -217,6 +217,8 @@ await MetroExodus.setCategories([1, 2, 3]);
 await MetroExodus.setCategories([]);
 ```
 
+I don't really like these because I am not sure what the actual names of the method are sometimes and these methods sometimes can't do some things or cause an error.
+
 Or if you don't want to use any of the above methods, you can just create join rows on the join table yourself, i.e.:
 
 ```js
