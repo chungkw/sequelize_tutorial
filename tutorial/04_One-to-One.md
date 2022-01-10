@@ -85,9 +85,9 @@ await Users.create({
 }, { include: "story" });
 ```
 
-**Note that `created_at` (the foreign key column) is not necessary to fill.**
+**Note that `created_by` (the foreign key column) is not necessary to fill.**
 
-But you can also create them separately, then associate them. It is now however necessary to fill the `created_at` column.
+But you can also create them separately, then associate them. It is now however necessary to fill the `created_by` column.
 
 ```js
 await Stories.create({
