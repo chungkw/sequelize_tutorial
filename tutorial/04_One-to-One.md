@@ -63,7 +63,7 @@ Stories.belongsTo(Users, {
 
 When a relationship has an alias, it must be queried with the alias.
 
-**The model that references the another is where the foreign key is stored.** In this case, it is in the `Stories` model, because that is where the `created_at` foreign key column is.
+**The model that references the another is where the foreign key is stored.** In this case, it is in the `Stories` model, because that is where the `created_by` foreign key column is.
 
 ## Querying this Relationship
 
