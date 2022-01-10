@@ -16,10 +16,10 @@ To use this transaction, we can see [`users.js`](../server/src/controllers/users
 ```js
 // purposefully cause an error
 module.exports.stupidDelete = async (req, res, next) => {
+    // create a transaction from the db connection
+    const transaction = await db.transaction();
+    
     try {
-        // create a transaction from the db connection
-        var transaction = await db.transaction();
-
         const { uid } = req.params;
         const force = bool(req.query.force);
 
