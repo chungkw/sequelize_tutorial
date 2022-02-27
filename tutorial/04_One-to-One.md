@@ -63,7 +63,7 @@ Stories.belongsTo(Users, {
 
 When a relationship has an alias, it must be queried with the alias.
 
-**The model that references the another is where the foreign key is stored.** In this case, it is in the `Stories` model, because that is where the `created_at` foreign key column is.
+**The model that references the another is where the foreign key is stored.** In this case, it is in the `Stories` model, because that is where the `created_by` foreign key column is.
 
 ## Querying this Relationship
 
@@ -85,9 +85,9 @@ await Users.create({
 }, { include: "story" });
 ```
 
-**Note that `created_at` (the foreign key column) is not necessary to fill.**
+**Note that `created_by` (the foreign key column) is not necessary to fill.**
 
-But you can also create them separately, then associate them. It is now however necessary to fill the `created_at` column.
+But you can also create them separately, then associate them. It is now however necessary to fill the `created_by` column.
 
 ```js
 await Stories.create({

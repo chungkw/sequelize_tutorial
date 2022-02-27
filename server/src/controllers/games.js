@@ -1,4 +1,6 @@
-const { Games } = require('../models/Models');
+const db = require('../config/connection');
+
+const { Games, Games_Categories } = require('../models/Models');
 
 module.exports.getAll = async (req, res, next) => {
     try {
@@ -77,6 +79,10 @@ module.exports.edit = async (req, res, next) => {
             categories = []
         } = req.body;
 
+        /*
+        games will be undefined for mysql
+        thus the following will not work
+
         const [rowsAffected, games] = await Games.update(
             { title, description, price, year },
             { where: { game_id: req.params.gid } }
@@ -84,6 +90,34 @@ module.exports.edit = async (req, res, next) => {
 
         if (categories.length > 0)
             await games[0].setCategories(categories);
+        */
+
+        const transaction = await db.transaction();
+        let rowsAffected;
+        try {
+            [rowsAffected] = await Games.update(
+                { title, description, price, year },
+                { where: { game_id: req.params.gid }, transaction }
+            );
+
+            if (categories.length === 0) throw new Error('Not found');
+
+            await Games_Categories.destroy({
+                where: { fk_game_id: req.params.gid },
+                transaction
+            });
+
+            await Games_Categories.bulkCreate(categories.map((category_id) => ({
+                fk_game_id: req.params.gid,
+                fk_category_id: category_id
+            })), { transaction });
+
+            await transaction.commit();
+        }
+        catch (error) {
+            await transaction.rollback();
+            throw error;
+        }
 
         res.status(200).json({ results: { changed: rowsAffected } });
         return next();

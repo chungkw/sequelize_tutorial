@@ -92,6 +92,11 @@ Categories.belongsToMany(Games, {
 });
 ```
 
+The pattern here is kind of confusing:
+
+- `foreignKey` refers to the column that will have the id of what is on the left, ie `Games` in `Games.belongsToMany(...)`.
+- `as` refers to the relationship of the right-side model to the left-side model.
+
 ### Optional Singular and Plural
 
 If you want to set your own singular/plural forms of the relationship alias, you can do the following:
@@ -211,6 +216,8 @@ await MetroExodus.setCategories([1, 2, 3]);
 // removes all categories from a game
 await MetroExodus.setCategories([]);
 ```
+
+I don't really like these because I am not sure what the actual names of the method are sometimes and these methods sometimes can't do some things or cause an error.
 
 Or if you don't want to use any of the above methods, you can just create join rows on the join table yourself, i.e.:
 
