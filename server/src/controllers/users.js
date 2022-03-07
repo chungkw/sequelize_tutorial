@@ -1,5 +1,5 @@
 const db = require('../config/connection');
-const { Users, Stories, Reviews } = require('../models/Models');
+const { Users, Stories, Reviews } = require('../models');
 
 // i think the strings 'false' and '0' are the only weird ones
 // because they get coerced as true
@@ -78,7 +78,7 @@ module.exports.edit = async (req, res, next) => {
         // if the above variables are undefined and get passed to sequelize
         // those columns are ignored
 
-        const [rowsAffected, users] = await Users.update(
+        const [rowsAffected] = await Users.update(
             { username, email, password },
             { where: { user_id: req.params.uid } }
         );

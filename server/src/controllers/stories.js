@@ -1,4 +1,4 @@
-const { Stories } = require('../models/Models');
+const { Stories } = require('../models');
 
 module.exports.getAll = async (req, res, next) => {
     try {
@@ -64,7 +64,7 @@ module.exports.edit = async (req, res, next) => {
         // if you destructured undefined, likely created_by
         const { created_by, title, content } = req.body;
 
-        const [rowsAffected, stories] = await Stories.update(
+        const [rowsAffected] = await Stories.update(
             // and used undefined in here,
             // sequelize will ignore the value
             { created_by, title, content },

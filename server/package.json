@@ -12,10 +12,13 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "cls && node ."
+    "start": "node ./src"
   },
   "keywords": [],
   "author": "Chung Kin Wai",
   "license": "MIT",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "@types/node": "^17.0.21"
+  }
 }
