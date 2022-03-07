@@ -50,10 +50,7 @@ module.exports.stupidDelete = async (req, res, next) => {
         // now that all changes are safe, we commit to them
         await transaction.commit();
 
-        // this value is not going to be accurate
-        const rowsDestroyed = destroyed.reduce((acc, cur) => acc += cur, 0);
-
-        res.status(200).json({ results: { destroyed: rowsDestroyed } });
+        res.status(200).send();
         return next();
     }
     catch (error) {

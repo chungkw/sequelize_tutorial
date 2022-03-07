@@ -32,3 +32,15 @@ await Reviews.findAll({
     }
 });
 ```
+
+The IN operator is basically many OR operators, for example, you want to find users with the ids of 1, 2, 9:
+
+```js
+await Users.findAll({
+    where: {
+        user_id: {
+            [Op.in]: [1, 2, 9]
+        }
+    }
+});
+```

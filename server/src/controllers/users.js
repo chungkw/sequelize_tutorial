@@ -1,5 +1,5 @@
 const db = require('../config/connection');
-const { Users, Stories, Reviews } = require('../models/Models');
+const { Users, Stories, Reviews } = require('../models');
 
 // i think the strings 'false' and '0' are the only weird ones
 // because they get coerced as true
@@ -78,7 +78,7 @@ module.exports.edit = async (req, res, next) => {
         // if the above variables are undefined and get passed to sequelize
         // those columns are ignored
 
-        const [rowsAffected, users] = await Users.update(
+        const [rowsAffected] = await Users.update(
             { username, email, password },
             { where: { user_id: req.params.uid } }
         );
@@ -111,15 +111,12 @@ module.exports.delete = async (req, res, next) => {
             where: { created_by: uid }, force, transaction
         });
 
-        const destroyed = await Promise.all([destroyUser, destroyStory, destroyReviews]);
+        await Promise.all([destroyUser, destroyStory, destroyReviews]);
 
         // now that all changes are safe, we commit to them
         await transaction.commit();
 
-        // this value is not going to be accurate
-        const rowsDestroyed = destroyed.reduce((acc, cur) => acc += cur, 0);
-
-        res.status(200).json({ results: { destroyed: rowsDestroyed } });
+        res.status(200).send();
         return next();
     }
     catch (error) {
@@ -156,15 +153,12 @@ module.exports.stupidDelete = async (req, res, next) => {
             setTimeout(() => reject(new Error('A useless rejection')), 1000);
         });
 
-        const destroyed = await Promise.all([destroyUser, destroyStory, destroyReviews, rejection]);
+        await Promise.all([destroyUser, destroyStory, destroyReviews, rejection]);
 
         // now that all changes are safe, we commit to them
         await transaction.commit();
 
-        // this value is not going to be accurate
-        const rowsDestroyed = destroyed.reduce((acc, cur) => acc += cur, 0);
-
-        res.status(200).json({ results: { destroyed: rowsDestroyed } });
+        res.status(200).send();
         return next();
     }
     catch (error) {

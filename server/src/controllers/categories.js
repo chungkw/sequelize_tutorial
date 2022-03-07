@@ -1,4 +1,4 @@
-const { Categories } = require('../models/Models');
+const { Categories } = require('../models');
 
 module.exports.getAll = async (req, res, next) => {
     try {
@@ -52,7 +52,7 @@ module.exports.edit = async (req, res, next) => {
     try {
         const { name, description } = req.body;
 
-        const [rowsAffected, categories] = await Categories.update(
+        const [rowsAffected] = await Categories.update(
             { name, description },
             { where: { category_id: req.params.cid } }
         );

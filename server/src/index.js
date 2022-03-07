@@ -2,10 +2,10 @@ const express = require('express');
 const cors = require('cors');
 
 const pc = require('picocolors');
-const db = require('./src/config/connection');
+const db = require('./config/connection');
 
-const CONFIG = require('./src/config/config');
-const mainRouter = require('./src/routes/main.routes');
+const CONFIG = require('./config');
+const mainRouter = require('./routes');
 
 const app = express();
 app.use(express.json());
@@ -31,7 +31,7 @@ const reset = true;
         // seed the database with data
         if (reset) {
             console.log(pc.yellow('LOADING SEEDER'));
-            const seeder = require('./src/database/seeder');
+            const seeder = require('./database/seeder');
 
             console.log(pc.blue('RUNNING SEEDER'));
             await seeder();

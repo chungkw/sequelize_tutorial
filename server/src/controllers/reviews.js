@@ -1,4 +1,4 @@
-const { Reviews } = require('../models/Models');
+const { Reviews } = require('../models');
 
 module.exports.getAll = async (req, res, next) => {
     try {
@@ -65,7 +65,7 @@ module.exports.edit = async (req, res, next) => {
     try {
         const { title, content, rating } = req.body;
 
-        const [rowsAffected, reviews] = await Reviews.update(
+        const [rowsAffected] = await Reviews.update(
             { title, content, rating },
             { where: { review_id: req.params.rid } }
         );

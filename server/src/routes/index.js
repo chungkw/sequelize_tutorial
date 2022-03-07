@@ -2,12 +2,12 @@ const router = require('express').Router();
 
 const { errorHandler } = require('../middlewares/errorHandler');
 
-const users = require('./users.routes');
-const stories = require('./stories.routes');
+const users = require('./users');
+const stories = require('./stories');
 
-const games = require('./games.routes');
-const categories = require('./categories.routes');
-const reviews = require('./reviews.routes');
+const games = require('./games');
+const categories = require('./categories');
+const reviews = require('./reviews');
 
 router.use(users);
 router.use(stories);

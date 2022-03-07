@@ -28,8 +28,8 @@ const Categories = db.define(
     }
 );
 
-const Games_Categories = db.define(
-    'Games_Categories',
+const Games2Categories = db.define(
+    'Games2Categories',
     {
         game_category_id: {
             type: DataTypes.INTEGER.UNSIGNED,
@@ -62,15 +62,15 @@ const Games_Categories = db.define(
 );
 
 Games.belongsToMany(Categories, {
-    through: Games_Categories, // using our own join table
+    through: Games2Categories, // using our own join table
     foreignKey: 'fk_game_id',
     as: 'categories' // a game can have many categories
 });
 
 Categories.belongsToMany(Games, {
-    through: Games_Categories, // using our own join table
+    through: Games2Categories, // using our own join table
     foreignKey: 'fk_category_id',
     as: 'games' // a category can have many games
 });
 
-module.exports = { Categories, Games_Categories };
+module.exports = { Categories, Games2Categories };

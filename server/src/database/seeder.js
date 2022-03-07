@@ -1,7 +1,7 @@
 const {
     Users, Stories,
     Games, Categories, Reviews
-} = require('../models/Models');
+} = require('../models');
 
 const faker = require('faker');
 

@@ -6,11 +6,5 @@
     "exclude": [
         "node_modules",
         "**/node_modules/*"
-    ],
-    "typeAcquisition": {
-        "enable": true,
-        "include": [
-            "node"
-        ]
-    }
+    ]
 }

@@ -1,6 +1,6 @@
 const db = require('../config/connection');
 
-const { Games, Games_Categories } = require('../models/Models');
+const { Games, Games2Categories } = require('../models');
 
 module.exports.getAll = async (req, res, next) => {
     try {
@@ -102,12 +102,12 @@ module.exports.edit = async (req, res, next) => {
 
             if (categories.length === 0) throw new Error('Not found');
 
-            await Games_Categories.destroy({
+            await Games2Categories.destroy({
                 where: { fk_game_id: req.params.gid },
                 transaction
             });
 
-            await Games_Categories.bulkCreate(categories.map((category_id) => ({
+            await Games2Categories.bulkCreate(categories.map((category_id) => ({
                 fk_game_id: req.params.gid,
                 fk_category_id: category_id
             })), { transaction });
