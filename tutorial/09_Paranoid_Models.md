@@ -2,7 +2,7 @@
 
 Paranoid models are used when you want to "hide" data rather than actually deleting it.
 
-**Note: Paranoid models should not be enabled on join/junction/through tables.**
+**Note: Paranoid models should not be enabled on join/junction/through tables. There are bugs.**
 
 To demonstrate, we will make some changes to our `Users` model, and also the `Stories` and `Reviews` models as they are related.
 

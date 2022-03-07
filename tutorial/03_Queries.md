@@ -103,6 +103,7 @@ To update data in a table, we can use the `update` method.
 In [`users.js`](../server/src/controllers/users.js):
 
 ```js
+// you wont see users in the source code
 const [rowsAffected, users] = await Users.update(
     { username, email, password },
     { where: { user_id } }
@@ -139,7 +140,7 @@ The method returns the number of rows that have been deleted.
 
 ### Deleting a Model Instance
 
-If you already have a model instance and you want to delete the row it represents, you also can call the `delete` method on it.
+If you already have a model instance and you want to delete the row it represents, you also can call the `destroy` method on it.
 
 ```js
 await user.destroy();

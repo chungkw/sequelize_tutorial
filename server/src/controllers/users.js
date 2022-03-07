@@ -111,15 +111,12 @@ module.exports.delete = async (req, res, next) => {
             where: { created_by: uid }, force, transaction
         });
 
-        const destroyed = await Promise.all([destroyUser, destroyStory, destroyReviews]);
+        await Promise.all([destroyUser, destroyStory, destroyReviews]);
 
         // now that all changes are safe, we commit to them
         await transaction.commit();
 
-        // this value is not going to be accurate
-        const rowsDestroyed = destroyed.reduce((acc, cur) => acc += cur, 0);
-
-        res.status(200).json({ results: { destroyed: rowsDestroyed } });
+        res.status(200).send();
         return next();
     }
     catch (error) {
@@ -156,15 +153,12 @@ module.exports.stupidDelete = async (req, res, next) => {
             setTimeout(() => reject(new Error('A useless rejection')), 1000);
         });
 
-        const destroyed = await Promise.all([destroyUser, destroyStory, destroyReviews, rejection]);
+        await Promise.all([destroyUser, destroyStory, destroyReviews, rejection]);
 
         // now that all changes are safe, we commit to them
         await transaction.commit();
 
-        // this value is not going to be accurate
-        const rowsDestroyed = destroyed.reduce((acc, cur) => acc += cur, 0);
-
-        res.status(200).json({ results: { destroyed: rowsDestroyed } });
+        res.status(200).send();
         return next();
     }
     catch (error) {
