@@ -46,7 +46,7 @@ Other folders you may want as you expand your application:
 | utils/helpers | extra functions that are used widely |
 | validations | any kind of data validation, such as `validator` or `yup` |
 
-# Barrel Exports
+## Barrel Exports
 
 In the folders `models` and `routes`, a technique known as barrel export is used. A `index.js` file is in each folder and simply imports everything else from the folder, and re-exports them
 
