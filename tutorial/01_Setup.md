@@ -26,12 +26,12 @@ You should use a `.env` file to store your database login credentials.
 
 Create a `.env` file in the root project folder.
 
-```
+```{5-6}
 PORT=8080
-DB_HOST=
+DB_HOST=localhost
 DB_NAME=sequelize_tutorial
-DB_PORT=
-DB_USER=
+DB_PORT=3306
+DB_USER=root
 DB_PASSWORD=
 ```
 

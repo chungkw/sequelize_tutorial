@@ -10,7 +10,11 @@ I will be using Sequelize with MySQL in this tutorial.
 
 This tutorial will cover basics in model definitions and making queries, one-to-one, one-to-many and many-to-many relationships, as well as paranoid models and transactions.
 
-If you wish to, you can also `npm i` here in the root directory and then use `npm run start` to view this tutorial in your browser.
+If you wish to, you can also download this repo and `npm i` in the root directory.
+
+Then use `npm run start` to view this tutorial in your browser.
+
+![Download this repo](./screenshots/download_repo.png)
 
 ## Chapters
 
