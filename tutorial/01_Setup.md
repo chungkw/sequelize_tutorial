@@ -18,7 +18,7 @@ npm i sequelize mysql2
 
 ## Structure
 
-You can see the demo server in this repo.
+You can see the demo server in this [repo](https://github.com/chungkw/sequelize_tutorial/tree/main/server).
 
 ## Configurations
 
