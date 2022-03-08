@@ -8,10 +8,10 @@ const sidebar = docs.map((doc) => `/tutorial/${doc}`);
 module.exports = {
     lang: 'en-UK',
     title: 'Sequelize Tutorial',
-    port: 9090,
+    port: 1234,
     themeConfig: {
         navbar: [{
-            text: 'Github',
+            text: 'GitHub',
             link: 'https://github.com/chungkw/sequelize_tutorial'
         }],
         sidebar,
@@ -21,5 +21,8 @@ module.exports = {
     pagePatterns: [
         './README.md',
         './tutorial/*.md'
+    ],
+    plugins: [
+        '@vuepress/back-to-top'
     ]
-}
+};

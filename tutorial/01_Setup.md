@@ -1,5 +1,7 @@
 # Setup
 
+[[toc]]
+
 In this tutorial, Sequelize will be used with MySQL.
 
 To begin, make sure you have a database ready to use.
@@ -37,7 +39,7 @@ DB_PASSWORD=
 
 Having set your credentials in `.env`, you should have a config file that gets those credentials from the `.env` file.
 
-In [`config.js`](../server/src/config/config.js):
+In [`config/index.js`](../server/src/config/index.js):
 
 ```js
 require('dotenv').config();
@@ -75,7 +77,7 @@ In the project entry file, we can get Sequelize to sync our database tables with
 
 In [`index.js`](../server/index.js):
 
-```js
+```js{7-8}
 // immediately invoked function here to use async/await
 (async function main() {
     try {

@@ -1,12 +1,14 @@
 # One-to-One Relationships
 
+[[toc]]
+
 Or as Sequelize calls it, associations.
 
 Say that now our users each can have one story, so we want a relationship between a user and their story.
 
 A new model definition is necessary, in [`Stories.js`](../server/src/models/Stories.js):
 
-```js
+```js{9-16}
 const Stories = db.define(
     'Stories',
     {
@@ -73,7 +75,7 @@ Largely similar to our queries in the previous chapter.
 
 While creating a new user, you can also create a story as well.
 
-```js
+```js{9}
 await Users.create({
     username: "boris",
     email: "boris@example.com",
@@ -119,7 +121,7 @@ However, if you need to have query options on the include, it is a bit longer.
 
 In [`stories.js`](../server/src/controllers/stories.js):
 
-```js
+```js{6}
 await Stories.findAll({
     include: {
         // model: Users,

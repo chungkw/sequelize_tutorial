@@ -8,6 +8,8 @@ const { Op } = require("sequelize");
 
 ## Some Examples
 
+### OR
+
 The OR operator on a column:
 
 ```js
@@ -33,6 +35,8 @@ await Reviews.findAll({
 });
 ```
 
+### IN
+
 The IN operator is basically many OR operators, for example, you want to find users with the ids of 1, 2, 9:
 
 ```js
@@ -40,6 +44,20 @@ await Users.findAll({
     where: {
         user_id: {
             [Op.in]: [1, 2, 9]
+        }
+    }
+});
+```
+
+### NOT
+
+The NOT operator is self-explanatory, right?
+
+```js
+await Users.findAll({
+    where: {
+        user_id: {
+            [Op.not]: 5
         }
     }
 });

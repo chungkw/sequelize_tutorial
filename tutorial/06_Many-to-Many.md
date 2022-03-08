@@ -1,5 +1,7 @@
 # Many-to-Many Relationships
 
+[[toc]]
+
 Previously, we created the `Games` model, but now we also want to be able to assign categories/game genres.
 
 To do this, we need a many-to-many relationship.
@@ -39,9 +41,9 @@ In a many-to-many relationship, data between two tables are joined by a join/jun
 
 As such, we also need another model to represent this table, in [`Categories.js`](../server/src/models/Categories.js):
 
-```js
-const Games_Categories = db.define(
-    'Games_Categories',
+```js{9-24}
+const Games2Categories = db.define(
+    'Games2Categories',
     {
         game_category_id: {
             type: DataTypes.INTEGER.UNSIGNED,
@@ -66,7 +68,7 @@ const Games_Categories = db.define(
         }
     },
     {
-        tableName: 'games_categories',
+        tableName: 'Games2Categories',
         timestamps: true,
         createdAt: 'created_at',
         updatedAt: 'updated_at'
@@ -80,13 +82,13 @@ The relationship between the two would be:
 
 ```js
 Games.belongsToMany(Categories, {
-    through: Games_Categories, // using our own join table
+    through: Games2Categories, // using our own join table
     foreignKey: 'fk_game_id', // if Categories store game_id's
     as: 'categories' // a game can have many categories
 });
 
 Categories.belongsToMany(Games, {
-    through: Games_Categories, // using our own join table
+    through: Games2Categories, // using our own join table
     foreignKey: 'fk_category_id', // if Games store category_id's
     as: 'games' // a category can have many games
 });
@@ -125,15 +127,17 @@ id | name | description
 3 | Action | Be up for the challenge
 4 | Shooter | Use firearms to defeat your enemies
 
-*Metro Exodus - Adventure, Post-Apocalyptic, Action (ids 1, 2, 3)*
+### Outcome
 
-*Titanfall 2 - Action, Shooter (ids 3, 4)*
+- Metro Exodus - Adventure, Post-Apocalyptic, Action (1, 2, 3)
+
+- Titanfall 2 - Action, Shooter (3, 4)
 
 ### Create
 
 Do it all at once:
 
-```js
+```js{20}
 const MetroExodus = await Games.create({
     title: "Metro Exodus",
     description: "Flee the shattered ruins of the Moscow Metro and embark on an epic, continent-spanning journey across the post-apocalyptic Russian wilderness.",
@@ -219,10 +223,14 @@ await MetroExodus.setCategories([]);
 
 I don't really like these because I am not sure what the actual names of the method are sometimes and these methods sometimes can't do some things or cause an error.
 
-Or if you don't want to use any of the above methods, you can just create join rows on the join table yourself, i.e.:
+::: tip
+This is what is called an **[active record](https://en.wikipedia.org/wiki/Active_record_pattern)** pattern. Such a pattern represents a row of data from the database as an object which contains methods that can be used to manipulate the represented data, such updating it, or in this case, relating/joining more data to it.
+:::
+
+Or if you don't want to use any of the above methods, you can just create join rows on the join table yourself:
 
 ```js
-await Games_Categories.create({
+await Games2Categories.create({
     fk_game_id,
     fk_category_id
 });

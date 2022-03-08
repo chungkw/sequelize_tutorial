@@ -1,5 +1,7 @@
 # Queries
 
+[[toc]]
+
 Now that we have a working model, we can begin querying the database. Typical CRUD operations - create, read, update and destroy.
 
 ## Create
@@ -22,7 +24,7 @@ If you have a lot of data to insert at once, you can use the `bulkCreate` method
 
 In [`seeder.js`](../server/src/database/seeder.js):
 
-```js
+```js{8-9}
 // an array to store our data
 const userInsertions = [];
 

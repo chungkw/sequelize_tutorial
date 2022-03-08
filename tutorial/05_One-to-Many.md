@@ -1,12 +1,14 @@
 # One-to-Many Relationships
 
+[[toc]]
+
 Now we want be able to post reviews on games as a user and games can also have many reviews.
 
 There is a one-to-many relationship between Users and Reviews. There is also a one-to-many relationship between Games and Reviews.
 
 For reviews, in [`Reviews.js`](../server/src/models/Reviews.js):
 
-```js
+```js{17-24}
 const Reviews = db.define(
     'Reviews',
     {
@@ -107,10 +109,7 @@ Users.hasMany(Reviews, {
 Reviews.belongsTo(Users, {
     foreignKey: 'created_by',
     as: 'author'
-});
-```
 
-```js
 // games can have many reviews
 Games.hasMany(Reviews, {
     foreignKey: 'fk_game_id',
@@ -132,7 +131,7 @@ It is also similar to one-to-one relationships.
 
 If you want to create a user and their (many) reviews all at once:
 
-```js
+```js{20}
 await Users.create({
     username: "vadim",
     email: "vadim@example.com",

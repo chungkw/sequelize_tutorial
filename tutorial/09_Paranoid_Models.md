@@ -1,5 +1,7 @@
 # [Paranoid Models](https://sequelize.org/master/manual/paranoid.html)
 
+[[toc]]
+
 Paranoid models are used when you want to "hide" data rather than actually deleting it.
 
 **Note: Paranoid models should not be enabled on join/junction/through tables. There are bugs.**
@@ -8,7 +10,7 @@ To demonstrate, we will make some changes to our `Users` model, and also the `St
 
 In [`Users.js`](../server/src/models/Users.js):
 
-```js
+```js{16-17}
 const Users = db.define(
     'Users', // model alias
     {
@@ -32,7 +34,7 @@ const Users = db.define(
 
 In [`Stories.js`](../server/src/models/Stories.js):
 
-```js
+```js{11-12}
 const Stories = db.define(
     'Stories',
     {
@@ -51,7 +53,7 @@ const Stories = db.define(
 
 In [`Reviews.js`](../server/src/models/Reviews.js):
 
-```js
+```js{11-12}
 const Reviews = db.define(
     'Reviews',
     {
@@ -90,7 +92,13 @@ const destroyReviews = Reviews.destroy({
 const destroyed = await Promise.all([destroyUser, destroyStory, destroyReviews]);
 ```
 
-Now, we can optionally choose to delete a user *forcefully* (whether to actually delete the data or hide it by setting the `deleted_at` column) using the `force` property which accepts true/false.
+::: tip
+Avoid async/await hell! Make use of `Promise.all` and `Promise.allSettled` to have multiple promises (that do not depend on the outcome of another) run concurrently.
+:::
+
+Now, we can optionally choose to delete a user "forcefully" (whether to actually delete the data or hide it by setting the `deleted_at` column) using the `force` property which accepts true/false.
+
+We cannot rely on database constraints such as cascade delete because the paranoid model and its fake delete is not managed by the database itself (that's why we have the `deleted_at` column).
 
 You can also do the same on a model instance:
 

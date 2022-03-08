@@ -13,7 +13,7 @@ const transaction = await db.transaction();
 
 To use this transaction, we can see [`users.js`](../server/src/controllers/users.js):
 
-```js
+```js{4,10-12,14-16,18-20,35,43}
 // purposefully cause an error
 module.exports.stupidDelete = async (req, res, next) => {
     // create a transaction from the db connection
@@ -61,6 +61,8 @@ module.exports.stupidDelete = async (req, res, next) => {
     }
 };
 ```
+
+Don't forget to commit or rollback your transactions. They will timeout and cause errors otherwise.
 
 Try on this API endpoint:
 
