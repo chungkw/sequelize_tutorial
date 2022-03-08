@@ -21,8 +21,5 @@ module.exports = {
     pagePatterns: [
         './README.md',
         './tutorial/*.md'
-    ],
-    plugins: [
-        '@vuepress/back-to-top'
     ]
 };
