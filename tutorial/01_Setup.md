@@ -75,7 +75,7 @@ module.exports = db;
 
 In the project entry file, we can get Sequelize to sync our database tables with the models we define.
 
-In [`index.js`](../server/index.js):
+In [`index.js`](../server/src/index.js):
 
 ```js{7-8}
 // immediately invoked function here to use async/await
