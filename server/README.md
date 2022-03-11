@@ -41,7 +41,7 @@ Other folders you may want as you expand your application:
 | ------ | ----------- |
 | constants | important variables that are used widely |
 | errors | proprietary application errors |
-| jobs | time/interval based tasks |
+| jobs | time-/interval-based tasks |
 | services | functions that help to do something external, outside of the backend such as cloudinary |
 | utils/helpers | extra functions that are used widely |
 | validations | any kind of data validation, such as `validator` or `yup` |
@@ -50,4 +50,4 @@ Other folders you may want as you expand your application:
 
 In the folders `models` and `routes`, a technique known as barrel export is used. A `index.js` file is in each folder and simply imports everything else from the folder, and re-exports them
 
-Read more about it in `src/models/index.js`
+Read more about it in [`src/models/index.js`](./src/models/index.js)
