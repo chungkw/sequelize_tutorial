@@ -6,7 +6,7 @@ Paranoid models are used when you want to "hide" data rather than actually delet
 
 To demonstrate, we will make some changes to our `Users` model, and also the `Stories` and `Reviews` models as they are related.
 
-In [`Users.js`](../server/src/models/Users.js):
+In [`Users.js`](../example/src/models/Users.js):
 
 ```js
 const Users = db.define(
@@ -30,7 +30,7 @@ const Users = db.define(
 );
 ```
 
-In [`Stories.js`](../server/src/models/Stories.js):
+In [`Stories.js`](../example/src/models/Stories.js):
 
 ```js
 const Stories = db.define(
@@ -49,7 +49,7 @@ const Stories = db.define(
 );
 ```
 
-In [`Reviews.js`](../server/src/models/Reviews.js):
+In [`Reviews.js`](../example/src/models/Reviews.js):
 
 ```js
 const Reviews = db.define(
@@ -72,7 +72,7 @@ const Reviews = db.define(
 
 No changes are really necessary, but if you do have relationships connected to the paranoid model, cascade delete will not work anymore.
 
-Thus, in [`users.js`](../server/src/controllers/users.js):
+Thus, in [`users.js`](../example/src/controllers/users.js):
 
 ```js
 const destroyUser = Users.destroy({

@@ -32,7 +32,7 @@ DataTypes.TEXT
 
 Now that you are able describe a column's data type for use in Sequelize, you can now start defining models.
 
-In [`Users.js`](../server/src/models/Users.js):
+In [`Users.js`](../example/src/models/Users.js):
 
 ```js
 const Users = db.define(
