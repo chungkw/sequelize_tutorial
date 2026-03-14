@@ -1,3 +1,8 @@
+---
+title: "Operators"
+layout: "../../layouts/BaseLayout.astro"
+---
+
 # [Operators](https://sequelize.org/master/manual/model-querying-basics.html#operators)
 
 Operators are used while querying. To use it, import it from Sequelize.

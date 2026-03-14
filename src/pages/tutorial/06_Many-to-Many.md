@@ -1,3 +1,8 @@
+---
+title: "Many-to-Many Relationships"
+layout: "../../layouts/BaseLayout.astro"
+---
+
 # Many-to-Many Relationships
 
 Previously, we created the `Games` model, but now we also want to be able to assign categories/game genres.

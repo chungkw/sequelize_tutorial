@@ -1,0 +1,19 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const markdownFiles = Object.values(
+	import.meta.glob("./tutorial/*.md", { eager: true }),
+);
+---
+
+<BaseLayout title="Sequelize Tutorial" >
+	<ul>
+		{
+			markdownFiles.map((file: any) => (
+				<li>
+					<a href={file.url}>{file.frontmatter.title}</a>
+				</li>
+			))
+		}
+	</ul>
+</BaseLayout>

@@ -1,3 +1,8 @@
+---
+title: "Transactions"
+layout: "../../layouts/BaseLayout.astro"
+---
+
 # [Transactions](https://sequelize.org/master/manual/transactions.html)
 
 Transactions give us the power to revert changes in the database.
@@ -70,4 +75,4 @@ Try on this API endpoint:
 
 You can see in the console that Sequelize is logging its SQL commands:
 
-![Server terminal](../screenshots/db_transaction.png)
+![Server terminal](../../images/db_transaction.png)

@@ -1,3 +1,8 @@
+---
+title: "Complex Includes"
+layout: "../../layouts/BaseLayout.astro"
+---
+
 # Complex Includes
 
 Now that there are a few relationships going on, we can do a query like this, in [`users.js`](../example/src/controllers/users.js):

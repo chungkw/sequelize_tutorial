@@ -1,3 +1,8 @@
+---
+title: "One-to-One Relationships"
+layout: "../../layouts/BaseLayout.astro"
+---
+
 # One-to-One Relationships
 
 Or as Sequelize calls it, associations.

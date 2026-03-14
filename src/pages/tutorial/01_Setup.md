@@ -1,3 +1,8 @@
+---
+title: "Setup"
+layout: "../../layouts/BaseLayout.astro"
+---
+
 # Setup
 
 In this tutorial, Sequelize will be used with MySQL.

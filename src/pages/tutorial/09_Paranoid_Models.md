@@ -1,3 +1,8 @@
+---
+title: "Paranoid Models"
+layout: "../../layouts/BaseLayout.astro"
+---
+
 # [Paranoid Models](https://sequelize.org/master/manual/paranoid.html)
 
 Paranoid models are used when you want to "hide" data rather than actually deleting it.
@@ -110,9 +115,9 @@ We can make an API call to "soft" (not really) delete a user:
 
 Results:
 
-![Users model](../screenshots/db_paranoid_users_soft.png)
-![Stories model](../screenshots/db_paranoid_stories_soft.png)
-![Reviews model](../screenshots/db_paranoid_reviews_soft.png)
+![Users model](../../images/db_paranoid_users_soft.png)
+![Stories model](../../images/db_paranoid_stories_soft.png)
+![Reviews model](../../images/db_paranoid_reviews_soft.png)
 
 We can see that the `deleted_at` column is populated with the time of deletion.
 
@@ -157,8 +162,8 @@ We can call the API to do so:
 
 Results:
 
-![Users model](../screenshots/db_paranoid_users_restore.png)
-![Stories model](../screenshots/db_paranoid_stories_restore.png)
-![Reviews model](../screenshots/db_paranoid_reviews_restore.png)
+![Users model](../../images/db_paranoid_users_restore.png)
+![Stories model](../../images/db_paranoid_stories_restore.png)
+![Reviews model](../../images/db_paranoid_reviews_restore.png)
 
 From what we can see, restoring the rows of data does not affect their `updated_at` column.

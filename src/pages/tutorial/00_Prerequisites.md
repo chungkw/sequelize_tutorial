@@ -1,3 +1,8 @@
+---
+title: "Prerequisites"
+layout: "../../layouts/BaseLayout.astro"
+---
+
 # Prerequisites
 
 In this tutorial in learning the ORM library Sequelize, you should know:

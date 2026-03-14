@@ -1,3 +1,8 @@
+---
+title: "One-to-Many Relationships"
+layout: "../../layouts/BaseLayout.astro"
+---
+
 # One-to-Many Relationships
 
 Now we want be able to post reviews on games as a user and games can also have many reviews.
