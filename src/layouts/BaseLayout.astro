@@ -1,8 +1,7 @@
 ---
 import Header from "../components/Header.astro";
 
-const title =
-    Astro.props.title ?? Astro.props.frontmatter?.title ?? "Sequelize Tutorial";
+const { title } = Astro.props;
 ---
 
 <html lang="en">
@@ -34,9 +33,3 @@ const title =
         </div>
     </body>
 </html>
-
-<style>
-    p > img {
-        width: 100%;
-    }
-</style>

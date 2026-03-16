@@ -1,6 +1,6 @@
 ---
 title: "Many-to-Many Relationships"
-layout: "../../layouts/BaseLayout.astro"
+layout: "../../layouts/MdLayout.astro"
 ---
 
 # Many-to-Many Relationships

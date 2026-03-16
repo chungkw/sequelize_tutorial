@@ -1,6 +1,6 @@
 ---
 title: "One-to-Many Relationships"
-layout: "../../layouts/BaseLayout.astro"
+layout: "../../layouts/MdLayout.astro"
 ---
 
 # One-to-Many Relationships

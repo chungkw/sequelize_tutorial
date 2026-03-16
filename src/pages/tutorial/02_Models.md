@@ -1,6 +1,6 @@
 ---
 title: "Models"
-layout: "../../layouts/BaseLayout.astro"
+layout: "../../layouts/MdLayout.astro"
 ---
 
 # Models

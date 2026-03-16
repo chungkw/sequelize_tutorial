@@ -1,6 +1,6 @@
 ---
 title: "Queries"
-layout: "../../layouts/BaseLayout.astro"
+layout: "../../layouts/MdLayout.astro"
 ---
 
 # Queries

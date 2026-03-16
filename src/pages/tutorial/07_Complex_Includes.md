@@ -1,6 +1,6 @@
 ---
 title: "Complex Includes"
-layout: "../../layouts/BaseLayout.astro"
+layout: "../../layouts/MdLayout.astro"
 ---
 
 # Complex Includes
