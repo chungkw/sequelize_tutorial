@@ -7,3 +7,10 @@ const title = Astro.props.frontmatter?.title ?? "Sequelize Tutorial";
 <BaseLayout title={title}>
     <slot />
 </BaseLayout>
+
+<style is:inline>
+    img {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+</style>
