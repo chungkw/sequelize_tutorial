@@ -130,6 +130,8 @@ id | name | description
 3 | Action | Be up for the challenge
 4 | Shooter | Use firearms to defeat your enemies
 
+<br>
+
 *Metro Exodus - Adventure, Post-Apocalyptic, Action (ids 1, 2, 3)*
 
 *Titanfall 2 - Action, Shooter (ids 3, 4)*

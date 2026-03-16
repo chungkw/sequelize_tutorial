@@ -1,11 +1,33 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
 
+const markdownFiles = Object.values(
+    import.meta.glob("../pages/tutorial/*.md", { eager: true }),
+);
+
 const title = Astro.props.frontmatter?.title ?? "Sequelize Tutorial";
 ---
 
 <BaseLayout title={title}>
-    <slot />
+    <div class="row">
+        <div class="col">
+            <nav>
+                <ul>
+                    {
+                        markdownFiles.map((file: any) => (
+                            <li class="mb-2">
+                                <a href={file.url}>{file.frontmatter.title}</a>
+                            </li>
+                        ))
+                    }
+                </ul>
+            </nav>
+        </div>
+
+        <div class="col-lg-9">
+            <slot />
+        </div>
+    </div>
 </BaseLayout>
 
 <style is:inline>
