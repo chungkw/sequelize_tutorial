@@ -1,5 +1,7 @@
 # Sequelize Tutorial
 
+[Read the tutorial here!](https://chungkw.github.io/sequelize_tutorial/)
+
 This is a Sequelize tutorial, with an example Express server to demonstrate various features of Sequelize.
 
 I will be using Sequelize with MySQL in this tutorial.
