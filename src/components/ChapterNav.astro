@@ -1,0 +1,52 @@
+---
+import { getCollection } from "astro:content";
+
+const pages = await getCollection("tutorial");
+
+function checkIsActive(href: string) {
+    return href === Astro.url.pathname;
+}
+---
+
+<div class="d-block d-lg-none mb-3">
+    <button
+        class="btn btn-outline-dark w-100"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#chapters"
+        aria-expanded="false"
+        aria-controls="chapters"
+    >
+        Show Chapters
+    </button>
+</div>
+
+<div class="collapse d-lg-block" id="chapters">
+    <nav>
+        <ul>
+            {
+                pages.map((page) => {
+                    const href = `/sequelize_tutorial/tutorial/${page.id}`;
+                    const isActive = checkIsActive(href);
+
+                    return (
+                        <li class="mb-2">
+                            <a
+                                href={href}
+                                class:list={[
+                                    "",
+                                    {
+                                        "fw-medium": isActive,
+                                        "text-decoration-none": !isActive,
+                                    },
+                                ]}
+                            >
+                                {page.data.title}
+                            </a>
+                        </li>
+                    );
+                })
+            }
+        </ul>
+    </nav>
+</div>

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
 
 import { getCollection } from "astro:content";
 
@@ -7,35 +8,46 @@ const pages = await getCollection("tutorial");
 ---
 
 <BaseLayout title="Sequelize Tutorial">
-	<p>This is a tutorial on using Sequelize.</p>
+	<Header />
 
-	<p>
-		<a
-			href="https://github.com/chungkw/sequelize_tutorial"
-			target="_blank"
-			rel="noopener noreferrer"
-		>
-			GitHub Repo
-		</a>
-	</p>
+	<div class="container">
+		<p>
+			This is my tutorial on using Sequelize, originally written in
+			2021-2022.
+		</p>
 
-	<p>
-		<a
-			href="https://github.com/chungkw"
-			target="_blank"
-			rel="noopener noreferrer"
-		>
-			Written by Kin Wai
-		</a>
-	</p>
+		<p>
+			<a
+				href="https://github.com/chungkw/sequelize_tutorial"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				See the GitHub Repo
+			</a>
+		</p>
 
-	<ul>
-		{
-			pages.map((page) => (
-				<li class="mb-2">
-					<a href={`/sequelize_tutorial/tutorial/${page.id}`}>{page.data.title}</a>
-				</li>
-			))
-		}
-	</ul>
+		<p>
+			<a
+				href="https://github.com/chungkw"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				Written by Kin Wai
+			</a>
+		</p>
+
+		<p class="h4">Chapters:</p>
+
+		<ul>
+			{
+				pages.map((page) => (
+					<li class="mb-2">
+						<a href={`/sequelize_tutorial/tutorial/${page.id}`}>
+							{page.data.title}
+						</a>
+					</li>
+				))
+			}
+		</ul>
+	</div>
 </BaseLayout>

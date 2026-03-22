@@ -1,33 +1,27 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
+import Header from "../components/Header.astro";
+import ChapterNav from "../components/ChapterNav.astro";
 
-import { type CollectionEntry, getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
 
 type Props = CollectionEntry<"tutorial">["data"];
-
-const pages = await getCollection("tutorial");
 
 const { title } = Astro.props;
 ---
 
 <BaseLayout title={title}>
-    <div class="row">
-        <div class="col">
-            <ul>
-                {
-                    pages.map((page) => (
-                        <li class="mb-2">
-                            <a href={`/sequelize_tutorial/tutorial/${page.id}`}>
-                                {page.data.title}
-                            </a>
-                        </li>
-                    ))
-                }
-            </ul>
-        </div>
+    <Header />
 
-        <div class="col-lg-9">
-            <slot />
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <ChapterNav />
+            </div>
+
+            <div class="col-lg-9">
+                <slot />
+            </div>
         </div>
     </div>
 </BaseLayout>
