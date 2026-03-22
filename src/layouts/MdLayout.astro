@@ -32,7 +32,17 @@ const title = Astro.props.frontmatter?.title ?? "Sequelize Tutorial";
 
 <style is:inline>
     img {
-        max-width: 100% !important;
-        height: auto !important;
+        display: block;
+        margin: auto;
+        max-width: 100%;
+        min-height: 50px;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+    }
+
+    pre.astro-code {
+        padding: 1rem;
+        border-radius: 1rem;
     }
 </style>

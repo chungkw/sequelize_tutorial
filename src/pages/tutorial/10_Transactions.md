@@ -75,4 +75,4 @@ Try on this API endpoint:
 
 You can see in the console that Sequelize is logging its SQL commands:
 
-![Server terminal](../../images/db_transaction.png)
+![Server terminal](../../assets/db_transaction.png)
