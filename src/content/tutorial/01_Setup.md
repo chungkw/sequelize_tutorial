@@ -1,6 +1,5 @@
 ---
 title: "Setup"
-layout: "../../layouts/MdLayout.astro"
 ---
 
 # Setup

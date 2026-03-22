@@ -1,6 +1,5 @@
 ---
 title: "Complex Includes"
-layout: "../../layouts/MdLayout.astro"
 ---
 
 # Complex Includes

@@ -1,0 +1,24 @@
+---
+import MdLayout from "../../layouts/MdLayout.astro";
+
+import { type CollectionEntry, getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+    const pages = await getCollection("tutorial");
+
+    return pages.map((page) => ({
+        params: { slug: page.id },
+        props: page,
+    }));
+}
+
+type Props = CollectionEntry<"tutorial">;
+
+const page = Astro.props;
+
+const { Content } = await render(page);
+---
+
+<MdLayout {...page.data}>
+    <Content />
+</MdLayout>

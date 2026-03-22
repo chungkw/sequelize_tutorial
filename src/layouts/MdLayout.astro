@@ -1,27 +1,29 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
 
-const markdownFiles = Object.values(
-    import.meta.glob("../pages/tutorial/*.md", { eager: true }),
-);
+import { type CollectionEntry, getCollection } from "astro:content";
 
-const title = Astro.props.frontmatter?.title ?? "Sequelize Tutorial";
+type Props = CollectionEntry<"tutorial">["data"];
+
+const pages = await getCollection("tutorial");
+
+const { title } = Astro.props;
 ---
 
 <BaseLayout title={title}>
     <div class="row">
         <div class="col">
-            <nav>
-                <ul>
-                    {
-                        markdownFiles.map((file: any) => (
-                            <li class="mb-2">
-                                <a href={file.url}>{file.frontmatter.title}</a>
-                            </li>
-                        ))
-                    }
-                </ul>
-            </nav>
+            <ul>
+                {
+                    pages.map((page) => (
+                        <li class="mb-2">
+                            <a href={`/sequelize_tutorial/tutorial/${page.id}`}>
+                                {page.data.title}
+                            </a>
+                        </li>
+                    ))
+                }
+            </ul>
         </div>
 
         <div class="col-lg-9">

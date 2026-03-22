@@ -1,6 +1,5 @@
 ---
 title: "Transactions"
-layout: "../../layouts/MdLayout.astro"
 ---
 
 # [Transactions](https://sequelize.org/master/manual/transactions.html)

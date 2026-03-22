@@ -1,6 +1,5 @@
 ---
 title: "Paranoid Models"
-layout: "../../layouts/MdLayout.astro"
 ---
 
 # [Paranoid Models](https://sequelize.org/master/manual/paranoid.html)

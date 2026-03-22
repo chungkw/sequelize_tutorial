@@ -1,6 +1,5 @@
 ---
 title: "Prerequisites"
-layout: "../../layouts/MdLayout.astro"
 ---
 
 # Prerequisites

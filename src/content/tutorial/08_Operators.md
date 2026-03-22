@@ -1,6 +1,5 @@
 ---
 title: "Operators"
-layout: "../../layouts/MdLayout.astro"
 ---
 
 # [Operators](https://sequelize.org/master/manual/model-querying-basics.html#operators)

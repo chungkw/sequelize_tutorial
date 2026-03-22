@@ -1,6 +1,5 @@
 ---
 title: "One-to-One Relationships"
-layout: "../../layouts/MdLayout.astro"
 ---
 
 # One-to-One Relationships
