@@ -4,7 +4,7 @@ import { getCollection } from "astro:content";
 const pages = await getCollection("tutorial");
 
 function checkIsActive(href: string) {
-    return href === Astro.url.pathname;
+    return Astro.url.pathname.includes(href);
 }
 ---
 
