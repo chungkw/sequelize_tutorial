@@ -8,47 +8,47 @@ const pages = await getCollection("tutorial");
 ---
 
 <BaseLayout title="Sequelize Tutorial">
-	<Header />
+    <Header />
 
-	<div class="container">
-		<p>
-			This is my tutorial on using Sequelize, originally written in
-			2021-2022 during the development of a school project.
-		</p>
+    <div class="container">
+        <p>
+            This is my tutorial on using Sequelize, originally written in
+            2021-2022 during the development of a school project.
+        </p>
 
-		<div class="list-group">
-			<a
-				href="https://github.com/chungkw/sequelize_tutorial"
-				target="_blank"
-				rel="noopener noreferrer"
-				class="list-group-item list-group-item-action list-group-item-primary text-body text-center"
-			>
-				See the GitHub Repo
-			</a>
+        <div class="list-group">
+            <a
+                href="https://github.com/chungkw/sequelize_tutorial"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="list-group-item list-group-item-action list-group-item-primary text-body text-center"
+            >
+                See the GitHub Repo
+            </a>
 
-			<a
-				href="https://github.com/chungkw"
-				target="_blank"
-				rel="noopener noreferrer"
-				class="list-group-item list-group-item-action list-group-item-success text-body text-center"
-			>
-				Written by Kin Wai
-			</a>
-		</div>
+            <a
+                href="https://github.com/chungkw"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="list-group-item list-group-item-action list-group-item-success text-body text-center"
+            >
+                Written by Kin Wai
+            </a>
+        </div>
 
-		<p class="h4 my-3">Chapters:</p>
+        <p class="h4 my-3">Chapters:</p>
 
-		<nav class="list-group">
-			{
-				pages.map((page) => (
-					<a
-						href={`/sequelize_tutorial/tutorial/${page.id}`}
-						class="list-group-item list-group-item-action text-body"
-					>
-						{page.data.title}
-					</a>
-				))
-			}
-		</nav>
-	</div>
+        <nav class="list-group">
+            {
+                pages.map((page) => (
+                    <a
+                        href={`/sequelize_tutorial/tutorial/${page.id}`}
+                        class="list-group-item list-group-item-action text-body"
+                    >
+                        {page.data.title}
+                    </a>
+                ))
+            }
+        </nav>
+    </div>
 </BaseLayout>
