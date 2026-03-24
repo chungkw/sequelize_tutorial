@@ -8,14 +8,14 @@ Transactions give us the power to revert changes in the database.
 
 For example, we currently have user data, but these user data are also linked to our story and review data. While normally we would rely on cascade delete, there are times where it may not work, such as using paranoid models.
 
-To create a new transaction, we need the instance of Sequelize from [`connection.js`](../example/src/config/connection.js):
+To create a new transaction, we need the instance of Sequelize from [`connection.js`](https://github.com/chungkw/sequelize_tutorial/tree/main/example/src/config/connection.js):
 
 ```js
 // create a transaction from the db connection
 const transaction = await db.transaction();
 ```
 
-To use this transaction, we can see [`users.js`](../example/src/controllers/users.js):
+To use this transaction, we can see [`users.js`](https://github.com/chungkw/sequelize_tutorial/tree/main/example/src/controllers/users.js):
 
 ```js
 // purposefully cause an error

@@ -8,7 +8,7 @@ Now we want be able to post reviews on games as a user and games can also have m
 
 There is a one-to-many relationship between Users and Reviews. There is also a one-to-many relationship between Games and Reviews.
 
-For reviews, in [`Reviews.js`](../example/src/models/Reviews.js):
+For reviews, in [`Reviews.js`](https://github.com/chungkw/sequelize_tutorial/tree/main/example/src/models/Reviews.js):
 
 ```js
 const Reviews = db.define(
@@ -57,7 +57,7 @@ const Reviews = db.define(
 );
 ```
 
-For games, in [`Games.js`](../example/src/models/Games.js):
+For games, in [`Games.js`](https://github.com/chungkw/sequelize_tutorial/tree/main/example/src/models/Games.js):
 
 ```js
 const Games = db.define(
@@ -98,7 +98,7 @@ const Games = db.define(
 
 The relationships would be:
 
-In [`Reviews.js`](../example/src/models/Reviews.js):
+In [`Reviews.js`](https://github.com/chungkw/sequelize_tutorial/tree/main/example/src/models/Reviews.js):
 
 ```js
 // users can have many reviews
@@ -163,7 +163,7 @@ await Users.create({
 
 When you want to get a review, you would need to join data from two other models, the `Users` and `Games` models. To do so, you use an array.
 
-In [`reviews.js`](../example/src/controllers/reviews.js):
+In [`reviews.js`](https://github.com/chungkw/sequelize_tutorial/tree/main/example/src/controllers/reviews.js):
 
 ```js
 await Reviews.findAll({

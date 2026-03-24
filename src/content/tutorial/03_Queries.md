@@ -24,7 +24,7 @@ It will return a new instance of the model to represent that row data.
 
 If you have a lot of data to insert at once, you can use the `bulkCreate` method. It works by taking an array of objects which represents data in a row.
 
-In [`seeder.js`](../example/src/database/seeder.js):
+In [`seeder.js`](https://github.com/chungkw/sequelize_tutorial/tree/main/example/src/database/seeder.js):
 
 ```js
 // an array to store our data
@@ -44,7 +44,7 @@ It will return an array of model instances to represent each user.
 
 To read data from a table, we can use the `findAll` method on the model.
 
-In [`users.js`](../example/src/controllers/users.js):
+In [`users.js`](https://github.com/chungkw/sequelize_tutorial/tree/main/example/src/controllers/users.js):
 
 ```js
 const users = await Users.findAll({
@@ -104,7 +104,7 @@ const user = await User.findByPk(user_id, {
 
 To update data in a table, we can use the `update` method.
 
-In [`users.js`](../example/src/controllers/users.js):
+In [`users.js`](https://github.com/chungkw/sequelize_tutorial/tree/main/example/src/controllers/users.js):
 
 ```js
 // you wont see users in the source code
@@ -132,7 +132,7 @@ const updatedUser = await existingUser.update({
 
 To delete data, we can use the `destroy` method.
 
-In [`users.js`](../example/src/controllers/users.js):
+In [`users.js`](https://github.com/chungkw/sequelize_tutorial/tree/main/example/src/controllers/users.js):
 
 ```js
 const rowsDestroyed = await Users.destroy({

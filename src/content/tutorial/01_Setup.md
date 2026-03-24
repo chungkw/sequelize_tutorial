@@ -41,7 +41,7 @@ DB_PASSWORD=
 
 Having set your credentials in `.env`, you should have a config file that gets those credentials from the `.env` file.
 
-In [`config.js`](../example/src/config/config.js):
+In [`config.js`](https://github.com/chungkw/sequelize_tutorial/tree/main/example/src/config/index.js):
 
 ```js
 require('dotenv').config();
@@ -60,7 +60,7 @@ module.exports = {
 
 With these credentials, we can now create a new connection with Sequelize to the database.
 
-In [`connection.js`](../example/src/config/connection.js):
+In [`connection.js`](https://github.com/chungkw/sequelize_tutorial/tree/main/example/src/config/connection.js):
 
 ```js
 const { Sequelize } = require('sequelize');
@@ -77,7 +77,7 @@ module.exports = db;
 
 In the project entry file, we can get Sequelize to sync our database tables with the models we define.
 
-In [`index.js`](../example/index.js):
+In [`index.js`](https://github.com/chungkw/sequelize_tutorial/tree/main/example/src/index.js):
 
 ```js
 // immediately invoked function here to use async/await

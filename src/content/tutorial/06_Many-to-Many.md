@@ -8,7 +8,7 @@ Previously, we created the `Games` model, but now we also want to be able to ass
 
 To do this, we need a many-to-many relationship.
 
-Creating the new model, in [`Categories.js`](../example/src/models/Categories.js):
+Creating the new model, in [`Categories.js`](https://github.com/chungkw/sequelize_tutorial/tree/main/example/src/models/Categories.js):
 
 ```js
 const Categories = db.define(
@@ -41,7 +41,7 @@ const Categories = db.define(
 
 In a many-to-many relationship, data between two tables are joined by a join/junction/through table.
 
-As such, we also need another model to represent this table, in [`Categories.js`](../example/src/models/Categories.js):
+As such, we also need another model to represent this table, in [`Categories.js`](https://github.com/chungkw/sequelize_tutorial/tree/main/example/src/models/Categories.js):
 
 ```js
 const Games_Categories = db.define(
@@ -251,7 +251,7 @@ await Titanfall2.setCategories([3, 4]);
 
 When reading many-to-many data, Sequelize will also get the data from the join table. If you don't want this, you can exclude columns from the join table.
 
-In [`games.js`](../example/src/controllers/games.js):
+In [`games.js`](https://github.com/chungkw/sequelize_tutorial/tree/main/example/src/controllers/games.js):
 
 ```js
 await Games.findAll({

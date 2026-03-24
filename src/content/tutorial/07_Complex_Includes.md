@@ -4,7 +4,7 @@ title: "Complex Includes"
 
 # Complex Includes
 
-Now that there are a few relationships going on, we can do a query like this, in [`users.js`](../example/src/controllers/users.js):
+Now that there are a few relationships going on, we can do a query like this, in [`users.js`](https://github.com/chungkw/sequelize_tutorial/tree/main/example/src/controllers/users.js):
 
 ```js
 await Users.findOne({

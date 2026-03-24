@@ -8,7 +8,7 @@ Or as Sequelize calls it, associations.
 
 Say that now our users each can have one story, so we want a relationship between a user and their story.
 
-A new model definition is necessary, in [`Stories.js`](../example/src/models/Stories.js):
+A new model definition is necessary, in [`Stories.js`](https://github.com/chungkw/sequelize_tutorial/tree/main/example/src/models/Stories.js):
 
 ```js
 const Stories = db.define(
@@ -121,7 +121,7 @@ await Stories.findAll({
 
 However, if you need to have query options on the include, it is a bit longer.
 
-In [`stories.js`](../example/src/controllers/stories.js):
+In [`stories.js`](https://github.com/chungkw/sequelize_tutorial/tree/main/example/src/controllers/stories.js):
 
 ```js
 await Stories.findAll({
