@@ -4,23 +4,29 @@ import Header from "../components/Header.astro";
 import ChapterNav from "../components/ChapterNav.astro";
 
 import type { CollectionEntry } from "astro:content";
+import ChapterPagination from "../components/ChapterPagination.astro";
 
-type Props = CollectionEntry<"tutorial">["data"];
+interface Props {
+    id: string;
+    data: CollectionEntry<"tutorial">["data"];
+}
 
-const { title } = Astro.props;
+const { id, data } = Astro.props;
 ---
 
-<BaseLayout title={title}>
+<BaseLayout title={data.title}>
     <Header />
 
     <div class="container">
         <div class="row">
-            <div class="col">
+            <div class="col col-lg-3">
                 <ChapterNav />
             </div>
 
-            <div class="col-lg-9">
+            <div class="col-12 col-lg-9">
                 <slot />
+
+                <ChapterPagination id={id} />
             </div>
         </div>
     </div>

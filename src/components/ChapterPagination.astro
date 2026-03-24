@@ -1,0 +1,56 @@
+---
+import { getCollection } from "astro:content";
+
+const pages = await getCollection("tutorial");
+
+interface Props {
+    id: string;
+}
+
+const { id } = Astro.props;
+
+const pageIds = pages.map((page) => page.id);
+
+const activePageIndex = pageIds.indexOf(id);
+
+const prevPageIndex = activePageIndex === 0 ? null : activePageIndex - 1;
+
+const nextPageIndex =
+    activePageIndex + 1 === pageIds.length ? null : activePageIndex + 1;
+
+console.log({ activePageIndex, prevPageIndex, nextPageIndex });
+---
+
+<div class="row mb-2">
+    {
+        prevPageIndex !== null && (
+            <div class="col-12 col-md-6 mb-2 me-auto">
+                <a
+                    href={`/sequelize_tutorial/tutorial/${pages[prevPageIndex].id}`}
+                    class="text-decoration-none text-body"
+                >
+                    <div class="p-3 border rounded bg-body-secondary h-100">
+                        <p>Previous Chapter</p>
+                        <p class="h5 m-0">{pages[prevPageIndex].data.title}</p>
+                    </div>
+                </a>
+            </div>
+        )
+    }
+
+    {
+        nextPageIndex !== null && (
+            <div class="col-12 col-md-6 mb-2 ms-auto">
+                <a
+                    href={`/sequelize_tutorial/tutorial/${pages[nextPageIndex].id}`}
+                    class="text-decoration-none text-body"
+                >
+                    <div class="p-3 border rounded bg-body-secondary h-100">
+                        <p>Next Chapter</p>
+                        <p class="h5 m-0">{pages[nextPageIndex].data.title}</p>
+                    </div>
+                </a>
+            </div>
+        )
+    }
+</div>
