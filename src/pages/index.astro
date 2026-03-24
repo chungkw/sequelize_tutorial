@@ -13,41 +13,42 @@ const pages = await getCollection("tutorial");
 	<div class="container">
 		<p>
 			This is my tutorial on using Sequelize, originally written in
-			2021-2022.
+			2021-2022 during the development of a school project.
 		</p>
 
-		<p>
+		<div class="list-group">
 			<a
 				href="https://github.com/chungkw/sequelize_tutorial"
 				target="_blank"
 				rel="noopener noreferrer"
+				class="list-group-item list-group-item-action list-group-item-primary text-body text-center"
 			>
 				See the GitHub Repo
 			</a>
-		</p>
 
-		<p>
 			<a
 				href="https://github.com/chungkw"
 				target="_blank"
 				rel="noopener noreferrer"
+				class="list-group-item list-group-item-action list-group-item-success text-body text-center"
 			>
 				Written by Kin Wai
 			</a>
-		</p>
+		</div>
 
-		<p class="h4">Chapters:</p>
+		<p class="h4 my-3">Chapters:</p>
 
-		<ul>
+		<nav class="list-group">
 			{
 				pages.map((page) => (
-					<li class="mb-2">
-						<a href={`/sequelize_tutorial/tutorial/${page.id}`}>
-							{page.data.title}
-						</a>
-					</li>
+					<a
+						href={`/sequelize_tutorial/tutorial/${page.id}`}
+						class="list-group-item list-group-item-action text-body"
+					>
+						{page.data.title}
+					</a>
 				))
 			}
-		</ul>
+		</nav>
 	</div>
 </BaseLayout>

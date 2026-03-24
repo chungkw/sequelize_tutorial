@@ -22,31 +22,24 @@ function checkIsActive(href: string) {
 </div>
 
 <div class="collapse d-lg-block" id="chapters">
-    <nav>
-        <ul>
-            {
-                pages.map((page) => {
-                    const href = `/sequelize_tutorial/tutorial/${page.id}`;
-                    const isActive = checkIsActive(href);
+    <nav class="list-group mb-3">
+        {
+            pages.map((page) => {
+                const href = `/sequelize_tutorial/tutorial/${page.id}`;
+                const isActive = checkIsActive(href);
 
-                    return (
-                        <li class="mb-2">
-                            <a
-                                href={href}
-                                class:list={[
-                                    "",
-                                    {
-                                        "fw-medium": isActive,
-                                        "text-decoration-none": !isActive,
-                                    },
-                                ]}
-                            >
-                                {page.data.title}
-                            </a>
-                        </li>
-                    );
-                })
-            }
-        </ul>
+                return (
+                    <a
+                        href={href}
+                        class:list={[
+                            "list-group-item list-group-item-action",
+                            { active: isActive, "text-body": !isActive },
+                        ]}
+                    >
+                        {page.data.title}
+                    </a>
+                );
+            })
+        }
     </nav>
 </div>
