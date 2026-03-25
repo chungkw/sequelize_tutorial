@@ -17,14 +17,12 @@ const prevPageIndex = activePageIndex === 0 ? null : activePageIndex - 1;
 
 const nextPageIndex =
     activePageIndex + 1 === pageIds.length ? null : activePageIndex + 1;
-
-console.log({ activePageIndex, prevPageIndex, nextPageIndex });
 ---
 
 <div class="row mb-2">
-    {
-        prevPageIndex !== null ? (
-            <div class="col-12 col-md-6 mb-2 me-auto">
+    <div class="col-12 col-md-6 mb-2 me-auto">
+        {
+            prevPageIndex !== null ? (
                 <a
                     href={`/sequelize_tutorial/tutorial/${pages[prevPageIndex].id}`}
                     class="text-decoration-none text-body"
@@ -34,19 +32,17 @@ console.log({ activePageIndex, prevPageIndex, nextPageIndex });
                         <p class="h5 m-0">{pages[prevPageIndex].data.title}</p>
                     </div>
                 </a>
-            </div>
-        ) : (
-            <div class="col-12 col-md-6 mb-2 me-auto">
+            ) : (
                 <div class="p-3 border border-dashed rounded text-body-secondary h-100">
                     <p class="m-0">This is the start!</p>
                 </div>
-            </div>
-        )
-    }
+            )
+        }
+    </div>
 
-    {
-        nextPageIndex !== null ? (
-            <div class="col-12 col-md-6 mb-2 ms-auto">
+    <div class="col-12 col-md-6 mb-2 ms-auto">
+        {
+            nextPageIndex !== null ? (
                 <a
                     href={`/sequelize_tutorial/tutorial/${pages[nextPageIndex].id}`}
                     class="text-decoration-none text-body"
@@ -56,15 +52,13 @@ console.log({ activePageIndex, prevPageIndex, nextPageIndex });
                         <p class="h5 m-0">{pages[nextPageIndex].data.title}</p>
                     </div>
                 </a>
-            </div>
-        ) : (
-            <div class="col-12 col-md-6 mb-2 me-auto">
+            ) : (
                 <div class="p-3 border border-dashed rounded text-body-secondary h-100">
                     <p class="m-0">This is the end!</p>
                 </div>
-            </div>
-        )
-    }
+            )
+        }
+    </div>
 </div>
 
 <style>
