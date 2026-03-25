@@ -1,10 +1,11 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
+
 import Header from "../components/Header.astro";
 import ChapterNav from "../components/ChapterNav.astro";
+import ChapterPagination from "../components/ChapterPagination.astro";
 
 import type { CollectionEntry } from "astro:content";
-import ChapterPagination from "../components/ChapterPagination.astro";
 
 interface Props {
     id: string;
@@ -18,19 +19,43 @@ const { id, data } = Astro.props;
     <Header />
 
     <div class="container">
-        <div class="row">
-            <div class="col col-lg-3">
-                <ChapterNav />
-            </div>
+        <aside>
+            <ChapterNav />
+        </aside>
 
-            <div class="col-12 col-lg-9">
+        <main>
+            <article>
                 <slot />
+            </article>
 
-                <ChapterPagination id={id} />
-            </div>
-        </div>
+            <ChapterPagination id={id} />
+        </main>
     </div>
 </BaseLayout>
+
+<style>
+    aside {
+        position: static;
+        width: 100%;
+    }
+
+    @media (min-width: 992px) {
+        aside {
+            position: fixed;
+            width: 28ch;
+        }
+    }
+
+    main {
+        margin: 0;
+    }
+
+    @media (min-width: 992px) {
+        main {
+            margin-left: 30ch;
+        }
+    }
+</style>
 
 <style is:inline>
     img {
