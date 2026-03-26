@@ -21,8 +21,8 @@ function checkIsActive(href: string) {
     </button>
 </div>
 
-<div class="collapse d-lg-block" id="chapters">
-    <nav class="list-group mb-3">
+<div class="collapse d-lg-block mb-3" id="chapters">
+    <nav class="list-group pe-lg-2">
         {
             pages.map((page) => {
                 const href = `/sequelize_tutorial/tutorial/${page.id}`;
@@ -43,3 +43,17 @@ function checkIsActive(href: string) {
         }
     </nav>
 </div>
+
+<style>
+    nav {
+        max-height: none;
+        overflow: auto;
+    }
+
+    @media (min-width: 992px) {
+        nav {
+            max-height: calc(100dvh - 90px);
+            overflow: auto;
+        }
+    }
+</style>
