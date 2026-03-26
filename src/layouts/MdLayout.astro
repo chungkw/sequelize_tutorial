@@ -15,7 +15,7 @@ interface Props {
 const { id, data } = Astro.props;
 ---
 
-<BaseLayout title={data.title}>
+<BaseLayout title={`${data.title} - Sequelize Tutorial`}>
     <Header />
 
     <div class="container">
