@@ -55,21 +55,19 @@ const { id, data } = Astro.props;
             margin-left: 30ch;
         }
     }
-</style>
 
-<style is:inline>
-    img {
+    :global(img) {
         display: block;
         margin: auto;
         max-width: 100%;
-        min-height: 50px;
+        min-height: 20px;
         width: auto;
         height: auto;
         object-fit: contain;
     }
 
-    pre.astro-code {
+    :global(pre.astro-code) {
         padding: 1rem;
-        border-radius: 0.5rem;
+        border-radius: var(--bs-border-radius);
     }
 </style>
